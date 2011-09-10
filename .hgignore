@@ -1,0 +1,21 @@
+syntax: regexp
+\.orig
+tags
+CMakeFiles/
+CMakeCache\.txt
+cmake_install\.cmake
+Makefile
+\.git
+\.svn
+\.vim
+\.exrc
+\.a
+^Build/
+^build/
+^src/thirdparty/box2d/Box2D/Build/
+^src/thirdparty/sfml/lib/
+bin/
+^cmake/lib/
+^cmake/game/
+^cmake/extern/
+valgrind.log
