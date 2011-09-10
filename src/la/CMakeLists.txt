@@ -15,7 +15,7 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 endif()
 
 include_directories(${la_SOURCE_DIR} ${LUA_INCLUDE_DIR} ${portaudio_INCLUDE_DIR})
-add_library(la MODULE ${la_SOURCES})
+add_library(la STATIC ${la_SOURCES})
 target_link_libraries(la ${LIBS})
 
 set(la_LIB la PARENT_SCOPE)
