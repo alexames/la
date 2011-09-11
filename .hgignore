@@ -10,8 +10,8 @@ Makefile
 \.vim
 \.exrc
 \.a
-^Build/
-^build/
+Build
+build
 ^src/thirdparty/box2d/Box2D/Build/
 ^src/thirdparty/sfml/lib/
 bin/

@@ -16,14 +16,28 @@ include(LibFindMacros)
 # Include dir
 find_path(Portaudio_INCLUDE_DIR
   NAMES portaudio.h
-  PATHS ../src/extern/portaudio/include
+  PATH_SUFFIXES include
+  PATHS 
+  ../extern/portaudio
 )
 
 # Finally the library itself
 find_library(Portaudio_LIBRARY
-  NAMES portaudio
-  PATHS ../src/extern/portaudio/lib
+  NAMES portaudio portaudio_x86
+  PATH_SUFFIXES
+  lib
+  build/msvc/Win32/Debug
+  build/msvc/Win32/Release
+  PATHS 
+  ../extern/portaudio/
 )
+
+if(Portaudio_LIBRARY)
+  get_filename_component(Portaudio_LIBRARY_DIR 
+    ${Portaudio_LIBRARY} 
+    PATH
+  )
+endif(Portaudio_LIBRARY)
 
 # Set the include dir variables and the libraries and let libfind_process do the rest.
 # NOTE: Singular variables for this library, plural for libraries this this lib depends on.

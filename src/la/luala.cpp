@@ -11,11 +11,11 @@ extern "C"
 
 float laL_ParseNumber(lua_State* L, int i, const char* field)
 {
-    float f;
+    double f;
     lua_getfield(L, i, field);
     f = lua_tonumber(L, -1);
     lua_pop(L, 1);
-    return f;
+    return (float)f;
 }
 
 la_Event* laL_ParseEvent(lua_State* L, int i)
@@ -26,7 +26,7 @@ la_Event* laL_ParseEvent(lua_State* L, int i)
         event->tone = laL_ParseNumber(L, i, "tone");
         event->beat = laL_ParseNumber(L, i, "beat");
         event->volume = laL_ParseNumber(L, i, "volume");
-        event->wavetype = (la_WaveType)laL_ParseNumber(L, i, "wavetype");
+        event->wavetype = (la_WaveType)((int)laL_ParseNumber(L, i, "wavetype"));
         event->length = laL_ParseNumber(L, i, "length");
         return event;
     }
@@ -71,7 +71,7 @@ static int laL_GetBeat(lua_State* L)
 
 static int laL_SetTempo(lua_State* L)
 {
-    la_SetTempo(lua_tonumber(L, 1));
+    la_SetTempo((float)lua_tonumber(L, 1));
     return 0;
 }
 
