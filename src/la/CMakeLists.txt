@@ -29,6 +29,19 @@ message(STATUS ${Portaudio_LIBRARY_DIR})
 message(STATUS ${LUA_LIBRARY_DIR})
 
 add_library(la MODULE ${la_SOURCES})
+set_target_properties(la 
+    PROPERTIES 
+    PREFIX ""
+    LIBRARY_OUTPUT_DIRECTORY "../../bin"
+)
 target_link_libraries(la ${LIBS})
+
+add_library(la-s STATIC ${la_SOURCES})
+set_target_properties(la-s 
+    PROPERTIES 
+    PREFIX ""
+    ARCHIVE_OUTPUT_DIRECTORY "../../bin"
+)
+target_link_libraries(la-s ${LIBS})
 
 set(la_LIB la PARENT_SCOPE)

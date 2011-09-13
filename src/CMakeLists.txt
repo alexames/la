@@ -6,8 +6,6 @@ set(CMAKE_MODULE_PATH ${laroot_SOURCE_DIR}/../cmake ${CMAKE_MODULE_PATH})
 include(MacroOutOfSourceBuild)
     macro_ensure_out_of_source_build("${PROJECT_NAME} requires an out of source build.")
 
-set(BASE_RELEASE_DIR ${laroot_SOURCE_DIR}/..)
-
 if (WIN32)
     set(CUSTOM_CFLAGS ${CUSTOM_CFLAGS} -DNOMINMAX -D_CRT_SECURE_NO_WARNINGS)
 endif()
